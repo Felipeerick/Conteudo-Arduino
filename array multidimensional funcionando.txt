@@ -1,0 +1,85 @@
+byte linhapinoN = 0;
+byte linhapinoHab = 1;
+byte linhapinoVal = 2;
+byte linhaaparelhos = 3;
+
+String pinos[4] [12] = {
+   { "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"}
+  ,{"0", "0", "0", "0", "0", "0", "0", "0", "1", "1", "1", "1",}
+  ,{"0", "0", "0", "0", "0", "0", "0", "0","0", "0", "0", "0",}
+  ,{"luz 2 ","luz 3 ","luz 4 ","luz 5 ","luz 6 ","luz 7 ","luz 8 ","luz 9 ","luz 10 ","luz 11 ","luz 12 ","luz 13 ",}
+  };
+
+void setup() {
+ Serial.begin(9600);
+ 
+ Serial.println("pinos a trabalhar");
+ for (int coluna = 0; coluna < 12; coluna ++){
+ Serial.println(pinos[linhapinoN][coluna]);
+ pinMode(pinos[linhapinoN][coluna].toInt(), OUTPUT);
+ }
+ }
+
+void loop() {
+  if (Serial.available() > 0){
+  String texto = Serial.readString();
+
+  if(texto == "l"){
+    ligarleds();
+    }
+    if(texto == "d"){
+    desligarleds();
+    }
+    if(texto == "m"){
+    mostrarleds();
+    }
+   
+   }
+  
+}
+
+ void ligarleds(){
+  for(int coluna = 0; coluna < 12; coluna = coluna + 1){
+    if(pinos[linhapinoHab][coluna] == "1") {
+    digitalWrite(pinos[linhapinoN][coluna].toInt(), HIGH);
+    pinos[linhapinoVal][coluna] = "1";
+
+    Serial.print(pinos[linhapinoN][coluna]); Serial.print(",");
+    delay(100);
+    }
+  
+  }
+
+  Serial.print("");
+  }
+
+void desligarleds(){
+  for(int coluna = 0; coluna < 12; coluna = coluna + 1){
+    if(pinos[linhapinoHab][coluna] == "1") {
+    digitalWrite(pinos[linhapinoN][coluna].toInt(), LOW);
+    pinos[linhapinoVal][coluna] = "0";
+
+    Serial.print(pinos[linhapinoN][coluna]); Serial.print(",");
+    delay(100);
+    }
+  
+  }
+
+  Serial.print("");
+  }
+
+  void mostrarleds() {
+    for(int coluna = 0; coluna < 12; coluna = coluna + 1){
+    if(pinos[linhapinoHab][coluna] == "1") {
+
+      Serial.print(pinos[linhaaparelhos][coluna]);
+      if(pinos[linhapinoVal][coluna] == "0"){
+        Serial.println("desligado");
+              }else{ Serial.println("ligado");
+         }
+      }
+    }
+       Serial.println("");
+       delay(100);
+    }
+   

@@ -1,0 +1,40 @@
+int pinos[14] = {13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+int n;
+void setup() {
+  
+ Serial.begin(9600);
+   for (int n = 0; n <= 13; n = n + 1) {
+    pinMode(pinos[n], OUTPUT);
+   }
+  
+}
+
+void loop() {
+  
+   ativarleds();
+   desligarleds();
+}
+
+
+void ativarleds(){
+
+for (int n = 0; n <=13; n = n + 1){
+    digitalWrite(pinos[n], HIGH);
+    delay(100);
+    
+     Serial.print(pinos[n]);
+}
+   Serial.println(" ");
+}   
+
+void desligarleds(){
+
+for (int n = 13; n >=0; n = n - 1){
+    digitalWrite(pinos[n], LOW);
+    delay(100);
+  
+    Serial.print(pinos[n]);
+       }
+    Serial.println(" ");   
+  
+}    

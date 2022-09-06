@@ -1,0 +1,31 @@
+int valorMax = 950;
+int valorMin = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+ Serial.println(" lendo sensor... ");
+}
+
+void loop() {
+  Serial.println(valor_sensor(A0) );
+  delay(1000);
+  
+}
+  String valor_sensor(int pino) {
+  int sensor = analogRead(pino);
+  int alcance = map(sensor, valorMin, valorMax, 0, 3);
+  switch (alcance) {
+      case 0: return("muito escuro");
+       break;
+       
+      case 1: return "escuro";
+       break;
+      
+      case 2: return("claro");
+       break;
+
+      case 3: return("muito claro"); 
+    }
+   delay(1000);
+}

@@ -1,0 +1,22 @@
+#include <Servo.h>
+
+Servo myservo;
+
+#define pinoPotenciometro A0
+
+int valor;
+void setup() {
+  // put your setup code here, to run once:
+  myservo.attach(8);
+  Serial.begin(9600);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ valor = analogRead(A0);
+ valor = map(valor, 0, 1023, 0, 179);
+ myservo.write(valor);
+ delay(15);    
+ Serial.println(valor);
+ 
+}

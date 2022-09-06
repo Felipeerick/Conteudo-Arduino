@@ -1,0 +1,23 @@
+int ledPin [] = {10,9,8,7,5,4};  
+int valor = A0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);    
+  Serial.begin(9600);
+}
+
+void loop() {
+  
+  valor = analogRead(A0);
+  analogWrite(10,valor);
+  analogWrite(10,valor);
+  analogWrite(9,valor);  
+  analogWrite(8,valor);
+  analogWrite(7,valor);
+  analogWrite(5,valor);
+  analogWrite(4,valor);
+  Serial.println(valor);
+  delay(100);
+  
+
+}

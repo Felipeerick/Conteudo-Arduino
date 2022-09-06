@@ -1,0 +1,26 @@
+int numeros[] = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+int n;
+int ld = 1;
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+  
+  for(int n = 0; n < 13; n++){
+            pinMode(numeros[n], OUTPUT);
+                }
+                   
+    }
+
+void loop() {
+  
+  if(ld == 1){
+ for(int n = 0; n < 13; n++){
+            digitalWrite(numeros[n], HIGH); delay(200); ld = 0;}
+  }else{
+    if(ld == 0){
+    for(int n = 13; n >= 0; n--){
+            digitalWrite(numeros[n], LOW); delay(200);}
+    }
+    ld = 1;
+}
+  }

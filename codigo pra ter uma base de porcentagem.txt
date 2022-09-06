@@ -1,0 +1,16 @@
+int pinPot = A0;
+int pinV = 0;
+int vMax = 1023;
+void setup() {
+  // put your setup code here, to run once:
+Serial.begin(9600);
+ 
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if(pinV != analogRead(pinPot) ){ 
+    pinV = analogRead(pinPot);}
+  Serial.println( String(float (pinV) /vMax * 100) + " %" ); 
+ 
+}

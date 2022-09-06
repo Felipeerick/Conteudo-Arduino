@@ -1,0 +1,26 @@
+int botao = 3;
+int reley = 2;
+
+int Led = 13;
+int estadoL = LOW;
+
+void setup() {
+  pinMode(Led, OUTPUT);
+  pinMode(botao, OUTPUT); 
+  pinMode(reley, OUTPUT);
+}
+
+void loop() {
+  int leitura = digitalRead(botao);
+  if(leitura == HIGH){
+    
+    estadoL = HIGH;
+   digitalWrite(reley, estadoL); digitalWrite(Led, estadoL); 
+  
+  }else if(leitura == LOW){ 
+    
+    estadoL = LOW;
+    digitalWrite(reley, estadoL); digitalWrite(Led, estadoL); 
+  }
+
+}

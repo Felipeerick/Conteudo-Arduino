@@ -1,0 +1,36 @@
+String campos[2];
+char texto;
+int n = 1;
+void setup() {
+  // put your setup code here, to run once:
+   Serial.begin(9600);
+   
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+ while(Serial.available() > 0){
+  texto = Serial.read();
+  if (texto != '\n'){
+    if (isAlphaNumeric(texto)){
+    campos[n] = campos[n] + texto;
+  }else{ 
+     n++;
+  }
+  delay(10);
+ }
+}
+
+if (n > 0){
+ pinMode(campos[0].toInt(), OUTPUT);
+ digitalWrite(campos[0].toInt(), campos[1].toInt());
+  
+ Serial.println(campos[0].toInt());
+ Serial.println(campos[1].toInt());
+  delay(3000);
+ campos[0] = "";
+ campos[1] = "";
+ n = -1;
+ 
+}
+}

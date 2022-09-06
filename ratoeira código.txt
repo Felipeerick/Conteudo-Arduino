@@ -1,0 +1,42 @@
+#include <Ultrasonic.h>
+ long microSeconds;
+ float cmMSec, inMSec;
+#define pino_trigger 5
+String teste;
+#define pino_echo 4
+int pegourato = 0;
+#define pinLed 7
+Ultrasonic ultrasonic(pino_trigger,pino_echo);
+void setup() {
+  // put your setup code here, to run once:
+ Serial.begin(9600);
+ pinMode(7,OUTPUT);
+ 
+}
+
+void loop() {
+  if(pegourato != 1){
+  microSeconds = ultrasonic.timing();
+  cmMSec = ultrasonic.convert(microSeconds,Ultrasonic::CM);
+  inMSec = ultrasonic.convert(microSeconds,Ultrasonic::IN);
+  Serial.print("centimetros: "); Serial.print(cmMSec);
+  Serial.print(", polegadas: "); Serial.println(inMSec);
+ 
+  
+
+ if(cmMSec <= 8){
+ Serial.println("pegourato");
+ digitalWrite(pinLed,HIGH);
+ pegourato = 1; 
+ 
+if (teste == "z" ) {
+  delay(5000);
+  digitalWrite(pinLed,LOW);
+    }
+   } 
+  if (teste == "S") {
+  delay(1000);
+  pegourato = 0;
+  }
+  }
+  }

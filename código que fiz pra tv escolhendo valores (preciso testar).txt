@@ -1,0 +1,26 @@
+#include <IRremote.h>
+#include <IRremoteInt.h>
+IRsend irsend;
+
+String campos;
+char texto;
+int n = -1;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  if(Serial.readString() != -1){
+  campos = Serial.readString();
+
+  switch(campos) {
+  case 0: irsend.sendNEC(código que ainda vou capturar, numero de bits do código); //power
+     case 1: irsend.sendNEC(código que ainda vou capturar, numero de bits do código); //volume+
+      case 2: irsend.sendNEC(código que ainda vou capturar, numero de bits do código); //volume-
+       case 3: irsend.sendNEC(código que ainda vou capturar, numero de bits do código); //chanel+
+        case 4: irsend.sendNEC(código que ainda vou capturar, numero de bits do código); //chanel-
+  }     
+  }     
+
+}

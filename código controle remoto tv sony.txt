@@ -1,0 +1,26 @@
+#include <IRremote.h>
+#include <IRremoteInt.h>
+IRsend irsend;
+
+String campos[2];
+char texto;
+int n = -1;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  n++;
+  switch (n) {
+  case 0: irsend.sendNEC(0xA90 (12 bits), 12); //power
+     case 1: irsend.sendNEC(0x490, 12); //volume+
+      case 2: irsend.sendNEC(0xC90, 12); //volume-
+       case 3: irsend.sendNEC(0x90, 12); //chanel+
+        case 4: irsend.sendNEC(0x890 7, 12); //chanel-
+  }     
+delay(1000);
+if(n > 4){
+  n = -1;
+}
+}

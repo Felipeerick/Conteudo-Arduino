@@ -1,0 +1,33 @@
+int ledPin = 13;  
+int inPin = 12;  
+int val = 0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);    
+  pinMode(inPin, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+  
+  if (Serial.available() > 0) { 
+    String texto = Serial.readString();
+ 
+      if(texto == "L") {
+       
+         Serial.print("pino 13:");
+           Serial.println(digitalRead(13));
+            Serial.print("Pino 12:");
+              Serial.println(digitalRead(12)); 
+  }else{
+  
+       int valor = texto.toInt();
+          if (val  !=  valor) {
+             val = valor;
+  digitalWrite(13, valor);
+  digitalWrite(12, valor);
+  
+}
+  }
+}
+}

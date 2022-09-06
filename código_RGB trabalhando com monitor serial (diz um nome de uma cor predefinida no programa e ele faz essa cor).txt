@@ -1,0 +1,72 @@
+const int azul = 9;
+const int verde = 10;
+
+const int vermelho = 11;
+String cor;
+
+//Funções responsáveis por executar o brilho selecionado
+void vermelhoFuncao(){
+  digitalWrite(azul, LOW);
+  digitalWrite(verde, LOW);
+  digitalWrite(vermelho, HIGH);
+}
+void azulFuncao(){
+  digitalWrite(azul, HIGH);
+  digitalWrite(verde, LOW);
+  digitalWrite(vermelho, LOW);
+}
+void verdeFuncao(){
+  digitalWrite(azul, LOW);
+  digitalWrite(verde, HIGH);
+  digitalWrite(vermelho, LOW);
+}
+void amareloFuncao(){
+  analogWrite(azul, 0);
+  analogWrite(verde, 50);
+  analogWrite(vermelho, 255);
+}
+void roxoFuncao(){
+  analogWrite(azul, 207);
+  analogWrite(verde, 0);
+  analogWrite(vermelho, 255);
+}
+void brancoFuncao(){
+  digitalWrite(azul, HIGH);
+  digitalWrite(verde, HIGH);
+  digitalWrite(vermelho, HIGH);
+}
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  pinMode(9, OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(11, OUTPUT);
+}
+
+ void loop()
+{
+  if(Serial.available()){
+    cor = Serial.readString();
+    Serial.println(cor);
+  }
+  if(cor == "Vermelho"){
+    vermelhoFuncao();
+  }
+  if(cor == "Azul"){
+    azulFuncao();
+  }
+  if(cor == "Verde"){
+    verdeFuncao();
+  }
+  if(cor == "Amarelo"){
+    amareloFuncao();
+  }
+  if(cor == "Roxo"){
+    roxoFuncao();
+  }
+  if(cor == "Branco"){
+    brancoFuncao();
+  } 
+}
+  
+  

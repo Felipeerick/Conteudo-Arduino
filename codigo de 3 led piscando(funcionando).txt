@@ -1,0 +1,82 @@
+long ultimo1segundos;
+int umsegundos = 1000;
+
+long ultimo2segundos;
+int doissegundos = 2000;
+
+long ultimo3segundos;
+int tressegundos = 3000;
+
+long ultimo4segundos;
+int quatrosegundos = 4000;
+
+long ultimo5segundos;
+int cincosegundos = 5000;
+
+long ultimo6segundos;
+int seissegundos = 6000;
+
+long ultimo7segundos;
+int setesegundos = 7000;
+
+void setup() {
+ pinMode(10,OUTPUT);
+ pinMode(9,OUTPUT); 
+ pinMode(8,OUTPUT);
+ pinMode(7,OUTPUT);
+ pinMode(6,OUTPUT);
+ pinMode(5,OUTPUT);
+ pinMode(4,OUTPUT);
+ 
+}
+
+void loop() {
+  if (millis() - ultimo1segundos >= 1000) {
+  ultimo1segundos = millis();
+  Serial.println(ultimo1segundos);
+  digitalWrite(4, !digitalRead(4));
+  }    
+   
+  if (millis()- ultimo2segundos >= 2000) {
+  ultimo2segundos = millis();
+  Serial.println(ultimo1segundos);
+  digitalWrite(5, !digitalRead(5));
+  }    
+  
+  if (millis() - ultimo3segundos >= 3000) { 
+  
+  ultimo3segundos = millis();
+  Serial.println(ultimo3segundos);
+  digitalWrite(6, !digitalRead(6));
+  }
+  
+  if (millis() - ultimo4segundos >= 4000) {
+  ultimo4segundos = millis();
+  Serial.println(ultimo4segundos);
+  digitalWrite(7, !digitalRead(7));
+  }    
+   
+  if  (millis()- ultimo5segundos >= 5000) {
+  ultimo5segundos = millis();
+  Serial.println(ultimo1segundos);
+  digitalWrite(8, !digitalRead(8));
+  }    
+  
+  if (millis() - ultimo6segundos >= 6000) { 
+  
+  ultimo6segundos = millis();
+  Serial.println(ultimo6segundos);
+  digitalWrite(9, !digitalRead(9));
+  }
+  if (millis() - ultimo7segundos >= 7000) { 
+  
+  ultimo7segundos = millis();
+  Serial.println(ultimo7segundos);
+  digitalWrite(10, !digitalRead(10));
+  }
+  
+  }
+  
+  
+  
+  

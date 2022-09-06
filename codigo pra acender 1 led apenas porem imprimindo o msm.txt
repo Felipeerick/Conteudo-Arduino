@@ -1,0 +1,26 @@
+bool valor = false;
+byte led = 3;
+void setup()
+{
+ pinMode(3, OUTPUT);
+}
+
+void loop() {
+
+  if (valor == 1) {
+    digitalWrite(led,valor);
+    Serial.print("verdadeiro");
+     
+  }
+   if(valor == 0) {
+       
+    digitalWrite(led,valor);
+    Serial.println("falso"); 
+  }
+  
+  digitalWrite(3, valor);
+  Serial.println(valor);
+   delay(1000);
+    valor = !valor;
+  
+}
